@@ -17,5 +17,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", require("./routes/authRoutes"));
 
+const cors = require("cors");
+// Allow all origins
+app.use(cors());
+// Allow specific origin(s)
+app.use(
+  cors({
+    origin: "https://yourdeployedsite.com",
+  })
+);
+
 const port = 8000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
