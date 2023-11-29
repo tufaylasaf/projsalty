@@ -23,7 +23,7 @@ app.use(cors());
 // Allow specific origin(s)
 app.use(
   cors({
-    origin: "https://yourdeployedsite.com",
+    origin: "https://projsalty.vercel.app",
   })
 );
 
