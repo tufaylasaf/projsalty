@@ -23,7 +23,9 @@ app.use(cors());
 // Allow specific origin(s)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://projsalty.vercel.app",
+    credentials: true,
+    methods: ["POST", "GET"],
   })
 );
 
