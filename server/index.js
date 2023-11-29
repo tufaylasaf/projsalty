@@ -29,5 +29,7 @@ app.use(
   })
 );
 
-const port = 8000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// const port = 8000;
+app.listen(process.env.PORT || 5001, () =>
+  console.log(`Server is running on port ${port}`)
+);
