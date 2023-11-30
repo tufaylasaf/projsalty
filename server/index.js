@@ -25,6 +25,11 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There!");
 });
 
+app.get("/tuf", (request, response) => {
+    console.log(request);
+    return response.status(234).send("tufayl is da best!");
+  });
+
 // app.use("/tuf", require("./routes/authRoutes"));
 
 // const port = 8000;
