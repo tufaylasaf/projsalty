@@ -1,5 +1,4 @@
 const express = require("express");
-const User = require("../models/user");
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
 import cors from "cors";
