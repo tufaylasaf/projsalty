@@ -25,7 +25,7 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There!");
 });
 
-app.use("/tuf", require("./routes/authRoutes"));
+// app.use("/tuf", require("./routes/authRoutes"));
 
 // const port = 8000;
 app.listen(5000, () => console.log(`Server is running on port ${port}`));
