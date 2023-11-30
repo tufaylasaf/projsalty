@@ -1,7 +1,8 @@
-const express = require("express");
-const { mongoose } = require("mongoose");
-const cookieParser = require("cookie-parser");
+import express from "express";
+import mongoose from "mongoose";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import authRoutes from "./routes/authRoutes";
 
 const app = express();
 
