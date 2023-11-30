@@ -22,12 +22,12 @@ app.use(
   })
 );
 
-// app.get("/", (request, response) => {
-//   console.log(request);
-//   return response.status(234).send("Hello There!");
-// });
+app.get("/", (request, response) => {
+  console.log(request);
+  return response.status(234).send("Hello There!");
+});
 
-app.use("/", authRoutes);
+// app.use("/", authRoutes);
 
 // const port = 8000;
 app.listen(5000, () => console.log(`Server is running on port ${port}`));
