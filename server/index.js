@@ -25,41 +25,41 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There!");
 });
 
-app.post("/register", async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
+// app.post("/register", async (req, res) => {
+//   try {
+//     const { name, email, password } = req.body;
 
-    if (!name) {
-      return res.json({
-        error: "Name is required",
-      });
-    }
+//     if (!name) {
+//       return res.json({
+//         error: "Name is required",
+//       });
+//     }
 
-    if (!password || password.length < 6) {
-      return res.json({
-        error: "Password is required and should be at least 6 characters long",
-      });
-    }
+//     if (!password || password.length < 6) {
+//       return res.json({
+//         error: "Password is required and should be at least 6 characters long",
+//       });
+//     }
 
-    const exist = await User.findOne({ email });
+//     const exist = await User.findOne({ email });
 
-    if (exist) {
-      return res.json({
-        error: "Email already exists",
-      });
-    }
+//     if (exist) {
+//       return res.json({
+//         error: "Email already exists",
+//       });
+//     }
 
-    const user = await User.create({
-      name,
-      email,
-      password,
-    });
+//     const user = await User.create({
+//       name,
+//       email,
+//       password,
+//     });
 
-    return res.json(user);
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     return res.json(user);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 // app.use("/tuf", require("./routes/authRoutes"));
 
