@@ -4,7 +4,28 @@ const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
 import cors from "cors";
 
-const registerUser = async (req, res) => {
+const app = express();
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cors());
+// Allow specific origin(s)
+app.use(
+  cors({
+    origin: "https://projsalty.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
+app.get("/", (request, response) => {
+  console.log(request);
+  return response.status(234).send("Hello There!");
+});
+
+app.post("/register", async (request, response) => {
   try {
     const { name, email, password } = req.body;
 
@@ -38,31 +59,6 @@ const registerUser = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
-
-const app = express();
-
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
-
-app.use(cors());
-// Allow specific origin(s)
-app.use(
-  cors({
-    origin: "https://projsalty.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
-
-app.get("/", (request, response) => {
-  console.log(request);
-  return response.status(234).send("Hello There!");
-});
-
-app.post("/register", (request, response) => {
-  registerUser();
 });
 
 // app.use("/tuf", require("./routes/authRoutes"));
