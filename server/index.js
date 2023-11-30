@@ -6,6 +6,10 @@ import cors from "cors";
 
 const app = express();
 
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(cors());
 // Allow specific origin(s)
 app.use(
@@ -15,10 +19,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   })
 );
-
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
 
 // app.use("/", require("./routes/authRoutes"));
 
@@ -30,9 +30,9 @@ app.get("/", (request, response) => {
 // const port = 8000;
 app.listen(5000, () => console.log(`Server is running on port ${port}`));
 
-mongoose
-  .connect(
-    "mongodb+srv://tufayl:no7158lyafut@cluster0.klpi1zw.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(() => console.log("Database Connected"))
-  .catch((err) => console.log("Database not Connected", err));
+// mongoose
+//   .connect(
+//     "mongodb+srv://tufayl:no7158lyafut@cluster0.klpi1zw.mongodb.net/?retryWrites=true&w=majority"
+//   )
+//   .then(() => console.log("Database Connected"))
+//   .catch((err) => console.log("Database not Connected", err));
