@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const cors = require("cors");
+
 const {
   registerUser,
   loginUser,
@@ -8,17 +8,17 @@ const {
 } = require("../controllers/authController");
 
 //middleware
-router.use(
-  cors({
-    credentials: true,
-    origin: "https://projsalty.vercel.app",
-  })
-);
+// router.use(
+//   cors({
+//     credentials: true,
+//     origin: "https://projsalty.vercel.app",
+//   })
+// );
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/profile", getProfile);
 
-module.exports = router;
+export default router;
 
 // "start": "nodemon index.js",
