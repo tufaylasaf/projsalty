@@ -1,8 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
-const cors = require("cors");
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
+import cors from "cors";
 
 const app = express();
 
@@ -17,19 +17,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", require("./routes/authRoutes"));
 
-const cors = require("cors");
-// Allow all origins
 app.use(cors());
 // Allow specific origin(s)
 app.use(
   cors({
-    origin: "https://projsalty-iawv.vercel.app",
-    credentials: true,
-    methods: ["POST", "GET"],
+    origin: "https://projsalty.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
   })
 );
 
 // const port = 8000;
-app.listen(process.env.PORT || 5001, () =>
-  console.log(`Server is running on port ${port}`)
-);
+app.listen(5000, () => console.log(`Server is running on port ${port}`));
