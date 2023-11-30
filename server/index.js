@@ -1,8 +1,10 @@
+import authRoutes from "./routes/authRoutes.js";
+import cors from "cors";
+
 const express = require("express");
 const dotenv = require("dotenv").config();
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
-import cors from "cors";
 
 const app = express();
 
@@ -20,12 +22,12 @@ app.use(
   })
 );
 
-// app.get("/", (request, response) => {
-//   console.log(request);
-//   return response.status(234).send("Hello There!");
-// });
+app.get("/", (request, response) => {
+  console.log(request);
+  return response.status(234).send("Hello There!");
+});
 
-app.use("/", require("./routes/authRoutes"));
+app.use("/", authRoutes);
 
 // const port = 8000;
 app.listen(5000, () => console.log(`Server is running on port ${port}`));
