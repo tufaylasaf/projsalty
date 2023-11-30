@@ -1,10 +1,10 @@
 import authRoutes from "./routes/authRoutes.js";
+import mongoose from "mongoose";
 import cors from "cors";
+import express from "express";
+import cookieParser from "cookie-parser";
 
-const express = require("express");
-const dotenv = require("dotenv").config();
-const { mongoose } = require("mongoose");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -32,9 +32,9 @@ app.get("/", (request, response) => {
 // const port = 8000;
 app.listen(5000, () => console.log(`Server is running on port ${port}`));
 
-// mongoose
-//   .connect(
-//     "mongodb+srv://tufayl:no7158lyafut@cluster0.klpi1zw.mongodb.net/?retryWrites=true&w=majority"
-//   )
-//   .then(() => console.log("Database Connected"))
-//   .catch((err) => console.log("Database not Connected", err));
+mongoose
+  .connect(
+    "mongodb+srv://tufayl:no7158lyafut@cluster0.klpi1zw.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log("Database not Connected", err));
