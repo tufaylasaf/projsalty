@@ -1,7 +1,8 @@
 import express from "express";
 import User from "../models/user.js";
-import auth from "../helpers/auth.js";
+// import auth from "../helpers/auth.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 // import {
 //   registerUser,
@@ -10,6 +11,26 @@ import jwt from "jsonwebtoken";
 // } from "../controllers/authController.js";
 
 const router = express.Router();
+
+const hashPassword = (password) => {
+  return new Promise((resolve, reject) => {
+    bcrypt.genSalt(12, (err, salt) => {
+      if (err) {
+        reject(err);
+      }
+      bcrypt.hash(password, salt, (err, hash) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(hash);
+      });
+    });
+  });
+};
+
+const comparePassword = (password, hashed) => {
+  return bcrypt.compare(password, hashed);
+};
 
 router.post("/register", async (req, res) => {
   try {
@@ -35,7 +56,7 @@ router.post("/register", async (req, res) => {
       });
     }
 
-    const hashedPassword = await auth.hashPassword(password);
+    const hashedPassword = await hashPassword(password);
 
     const user = await User.create({
       name,
