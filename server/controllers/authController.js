@@ -1,7 +1,7 @@
-const User = require("../models/user");
-const { hashPassword, comparePassword } = require("../helpers/auth");
-const { use } = require("../routes/authRoutes");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.js";
+import { hashPassword, comparePassword } from "../helpers/auth.js";
+// import { use } from "../routes/authRoutes";
+import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
   try {
