@@ -1,11 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const cors = require("cors");
+import express from "express";
+// const cors = require("cors");
 const {
   registerUser,
   loginUser,
   getProfile,
 } = require("../controllers/authController");
+
+const router = express.Router();
 
 //middleware
 // router.use(
@@ -20,6 +21,4 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/profile", getProfile);
 
-module.exports = router;
-
-// "start": "nodemon index.js",
+export default router;
