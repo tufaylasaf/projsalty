@@ -1,6 +1,6 @@
 import User from "../models/user.js";
 // import auth from "../helpers/auth.js";
-// import { use } from "../routes/authRoutes";
+import bcrypt from "bcrypt";
 // import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {

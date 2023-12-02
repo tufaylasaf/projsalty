@@ -24,8 +24,3 @@ export default {
   hashPassword,
   comparePassword,
 };
-
-// module.exports = {
-//   hashPassword,
-//   comparePassword,
-// };
