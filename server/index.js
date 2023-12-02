@@ -12,16 +12,16 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 // Allow specific origin(s)
-app.use(
-  cors({
-    origin: [
-      "https://projsalty-api.vercel.app",
-      "https://projsalty.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: [
+//       "https://projsalty-api.vercel.app",
+//       "https://projsalty.vercel.app",
+//     ],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 
 app.get("/", (request, response) => {
   console.log(request);
