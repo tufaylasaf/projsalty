@@ -1,5 +1,5 @@
 import User from "../models/user.js";
-// import { hashPassword, comparePassword } from "../helpers/auth.js";
+import auth from "../helpers/auth.js";
 // import { use } from "../routes/authRoutes";
 // import jwt from "jsonwebtoken";
 
@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
       });
     }
 
-    const hashedPassword = await hashPassword(password);
+    const hashedPassword = await auth.hashPassword(password);
 
     const user = await User.create({
       name,
@@ -53,7 +53,7 @@ const loginUser = async (req, res) => {
       });
     }
 
-    const match = await comparePassword(password, user.password);
+    const match = await auth.comparePassword(password, user.password);
     if (match) {
       jwt.sign(
         { email: user.email, id: user._id, name: user.name },
