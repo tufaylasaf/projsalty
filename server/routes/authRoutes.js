@@ -1,10 +1,10 @@
 import express from "express";
 // const cors = require("cors");
-const {
+import {
   registerUser,
   loginUser,
   getProfile,
-} = require("../controllers/authController");
+} from "../controllers/authController";
 
 const router = express.Router();
 
