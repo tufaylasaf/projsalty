@@ -46,6 +46,8 @@ const router = express.Router();
 
 router.post("/register", authController.registerUser);
 
+router.post("/login", authController.loginUser);
+
 // router.post("/login", async (req, res) => {
 //   try {
 //     const { email, password } = req.body;
