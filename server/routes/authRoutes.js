@@ -1,7 +1,7 @@
 import express from "express";
 import User from "../models/user.js";
-import { hashPassword, comparePassword } from "../helpers/auth.js";
-import jwt from "jsonwebtoken";
+// import { hashPassword, comparePassword } from "../helpers/auth.js";
+// import jwt from "jsonwebtoken";
 // const cors = require("cors");
 // import {
 //   registerUser,
@@ -43,12 +43,12 @@ router.post("/register", async (req, res) => {
       });
     }
 
-    const hashedPassword = await hashPassword(password);
+    // const hashedPassword = await hashPassword(password);
 
     const user = await User.create({
       name,
       email,
-      password: hashedPassword,
+      password,
     });
 
     return res.json(user);
