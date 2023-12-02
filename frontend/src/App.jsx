@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
 
 // axios.defaults.baseURL = "http://localhost:8000";
-axios.defaults.baseURL = "https://projsalty.vercel.app";
+axios.defaults.baseURL = "https://projsalty-api.vercel.app";
 axios.defaults.withCredentials = true;
 
 function App() {

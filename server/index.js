@@ -14,7 +14,7 @@ app.use(cors());
 // Allow specific origin(s)
 app.use(
   cors({
-    origin: "https://projsalty.vercel.app",
+    origin: "https://projsalty-api.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
