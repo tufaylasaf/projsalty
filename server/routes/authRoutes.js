@@ -7,7 +7,10 @@ const router = express.Router();
 router.use(
   cors({
     credentials: true,
-    origin: "https://projsalty.vercel.app",
+    origin: [
+      "https://projsalty-api.vercel.app",
+      "https://projsalty.vercel.app",
+    ],
   })
 );
 
