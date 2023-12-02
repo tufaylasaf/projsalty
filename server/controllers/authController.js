@@ -54,15 +54,16 @@ const loginUser = async (req, res) => {
 
     const match = await auth.comparePassword(password, user.password);
     if (match) {
-      jwt.sign(
-        { email: user.email, id: user._id, name: user.name },
-        864197532,
-        {},
-        (err, token) => {
-          if (err) throw err;
-          res.cookie("token", token).json(user);
-        }
-      );
+      //   jwt.sign(
+      //     { email: user.email, id: user._id, name: user.name },
+      //     864197532,
+      //     {},
+      //     (err, token) => {
+      //       if (err) throw err;
+      //       res.cookie("token", token).json(user);
+      //     }
+      //   );
+      res.json("passwords match");
     }
     if (!match) {
       res.json({
