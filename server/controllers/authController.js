@@ -1,9 +1,9 @@
 import User from "../models/user.js";
-import { hashPassword, comparePassword } from "../helpers/auth.js";
+// import { hashPassword, comparePassword } from "../helpers/auth.js";
 // import { use } from "../routes/authRoutes";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 
-export const registerUser = async (req, res) => {
+const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -93,3 +93,5 @@ export const registerUser = async (req, res) => {
 //   loginUser,
 //   //   getProfile,
 // };
+
+export default registerUser;

@@ -1,14 +1,10 @@
 import express from "express";
-import User from "../models/user.js";
+// import User from "../models/user.js";
 // import auth from "../helpers/auth.js";
 // import jwt from "jsonwebtoken";
 // import bcrypt from "bcrypt";
 
-// import {
-//   registerUser,
-//   loginUser,
-//   //   getProfile,
-// } from "../controllers/authController.js";
+import { registerUser } from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -32,43 +28,45 @@ const router = express.Router();
 //   return bcrypt.compare(password, hashed);
 // };
 
-router.post("/register", async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
+// router.post("/register", async (req, res) => {
+//   try {
+//     const { name, email, password } = req.body;
 
-    if (!name) {
-      return res.json({
-        error: "Name is required",
-      });
-    }
+//     if (!name) {
+//       return res.json({
+//         error: "Name is required",
+//       });
+//     }
 
-    if (!password || password.length < 6) {
-      return res.json({
-        error: "Password is required and should be at least 6 characters long",
-      });
-    }
+//     if (!password || password.length < 6) {
+//       return res.json({
+//         error: "Password is required and should be at least 6 characters long",
+//       });
+//     }
 
-    const exist = await User.findOne({ email });
+//     const exist = await User.findOne({ email });
 
-    if (exist) {
-      return res.json({
-        error: "Email already exists",
-      });
-    }
+//     if (exist) {
+//       return res.json({
+//         error: "Email already exists",
+//       });
+//     }
 
-    // const hashedPassword = await hashPassword(password);
+//     // const hashedPassword = await hashPassword(password);
 
-    const user = await User.create({
-      name,
-      email,
-      password,
-    });
+//     const user = await User.create({
+//       name,
+//       email,
+//       password,
+//     });
 
-    return res.json(user);
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     return res.json(user);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+router.post("/register", registerUser);
 
 // router.post("/login", async (req, res) => {
 //   try {
