@@ -1,5 +1,5 @@
 import User from "../models/user.js";
-import auth from "../helpers/auth.js";
+// import auth from "../helpers/auth.js";
 // import { use } from "../routes/authRoutes";
 // import jwt from "jsonwebtoken";
 
