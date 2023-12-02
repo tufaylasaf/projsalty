@@ -8,7 +8,7 @@ import { UserContextProvider } from "../context/userContext";
 
 // axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.baseURL = "https://projsalty-api.vercel.app";
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 function App() {
   return (
