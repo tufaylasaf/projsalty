@@ -1,7 +1,7 @@
 import express from "express";
 import User from "../models/user.js";
 // import auth from "../helpers/auth.js";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 // import {
@@ -28,9 +28,9 @@ const hashPassword = (password) => {
   });
 };
 
-const comparePassword = (password, hashed) => {
-  return bcrypt.compare(password, hashed);
-};
+// const comparePassword = (password, hashed) => {
+//   return bcrypt.compare(password, hashed);
+// };
 
 router.post("/register", async (req, res) => {
   try {
