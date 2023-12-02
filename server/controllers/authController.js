@@ -41,39 +41,39 @@ const registerUser = async (req, res) => {
   }
 };
 
-// const loginUser = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-//     const user = await User.findOne({ email });
+    const user = await User.findOne({ email });
 
-//     if (!user) {
-//       return res.json({
-//         error: "No User found",
-//       });
-//     }
+    if (!user) {
+      return res.json({
+        error: "No User found",
+      });
+    }
 
-//     const match = await comparePassword(password, user.password);
-//     if (match) {
-//       jwt.sign(
-//         { email: user.email, id: user._id, name: user.name },
-//         process.env.JWT_SECRET,
-//         {},
-//         (err, token) => {
-//           if (err) throw err;
-//           res.cookie("token", token).json(user);
-//         }
-//       );
-//     }
-//     if (!match) {
-//       res.json({
-//         error: "Passwords do not match",
-//       });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+    const match = await comparePassword(password, user.password);
+    if (match) {
+      jwt.sign(
+        { email: user.email, id: user._id, name: user.name },
+        process.env.JWT_SECRET,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie("token", token).json(user);
+        }
+      );
+    }
+    if (!match) {
+      res.json({
+        error: "Passwords do not match",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // const getProfile = (req, res) => {
 //   const { token } = req.cookies;
@@ -88,10 +88,4 @@ const registerUser = async (req, res) => {
 //   }
 // };
 
-// module.exports = {
-//   registerUser,
-//   loginUser,
-//   //   getProfile,
-// };
-
-export default registerUser;
+export default { registerUser, loginUser };

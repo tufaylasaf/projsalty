@@ -4,7 +4,7 @@ import express from "express";
 // import jwt from "jsonwebtoken";
 // import bcrypt from "bcrypt";
 
-import registerUser from "../controllers/authController.js";
+import authController from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -66,7 +66,7 @@ const router = express.Router();
 //   }
 // });
 
-router.post("/register", registerUser);
+router.post("/register", authController.registerUser);
 
 // router.post("/login", async (req, res) => {
 //   try {
