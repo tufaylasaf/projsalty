@@ -20,6 +20,11 @@ export const comparePassword = (password, hashed) => {
   return bcrypt.compare(password, hashed);
 };
 
+export default {
+  hashPassword,
+  comparePassword,
+};
+
 // module.exports = {
 //   hashPassword,
 //   comparePassword,

@@ -1,8 +1,8 @@
 import express from "express";
 import User from "../models/user.js";
-// import { hashPassword, comparePassword } from "../helpers/auth.js";
+import { hashPassword, comparePassword } from "../helpers/auth.js";
 import jwt from "jsonwebtoken";
-// const cors = require("cors");
+
 // import {
 //   registerUser,
 //   loginUser,
@@ -10,14 +10,6 @@ import jwt from "jsonwebtoken";
 // } from "../controllers/authController.js";
 
 const router = express.Router();
-
-//middleware
-// router.use(
-//   cors({
-//     credentials: true,
-//     origin: "http://localhost:5173",
-//   })
-// );
 
 router.post("/register", async (req, res) => {
   try {
