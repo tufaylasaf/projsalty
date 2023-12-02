@@ -10,19 +10,36 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(cors());
-// Allow specific origin(s)
-app.use(
-  cors({
-    origin: [
-      "https://projsalty-api.vercel.app",
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Check if the origin is allowed, or allow all origins with a wildcard
+    const allowedOrigins = [
       "https://projsalty.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
-  })
-);
+      "https://projsalty-api.vercel.app",
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+// Allow specific origin(s)
+// app.use(
+//   cors({
+//     origin: [
+//       "https://projsalty-api.vercel.app",
+//       "https://projsalty.vercel.app",
+//     ],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//     credentials: true,
+//   })
+// );
 
 app.get("/", (request, response) => {
   console.log(request);
