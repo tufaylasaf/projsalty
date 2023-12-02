@@ -35,12 +35,12 @@ router.post("/register", async (req, res) => {
       });
     }
 
-    // const hashedPassword = await hashPassword(password);
+    const hashedPassword = await auth.hashPassword(password);
 
     const user = await User.create({
       name,
       email,
-      password,
+      password: hashedPassword,
     });
 
     return res.json(user);
