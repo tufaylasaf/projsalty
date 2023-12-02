@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/authRoutes.js";
+// import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There!");
 });
 
-app.use("/tuf", authRoutes);
+// app.use("/tuf", authRoutes);
 
 app.listen(5000, () => {
   console.log(`Server is running on port ${port}`);
