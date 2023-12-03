@@ -77,7 +77,7 @@ function Login() {
       <div class="form-container sign-up-container">
         <form action="#">
           <h1>Create Account</h1>
-          <div class="social-container">
+          {/* <div class="social-container">
             <a href="#" class="social">
               <i class="fab fa-facebook-f"></i>
             </a>
@@ -87,8 +87,8 @@ function Login() {
             <a href="#" class="social">
               <i class="fab fa-linkedin-in"></i>
             </a>
-          </div>
-          <span>or use your email for registration</span>
+          </div> */}
+          {/* <span>or use your email for registration</span> */}
           <input
             type="text"
             placeholder="Name"
@@ -113,7 +113,7 @@ function Login() {
       <div class="form-container sign-in-container">
         <form action="#">
           <h1>Sign in</h1>
-          <div class="social-container">
+          {/* <div class="social-container">
             <a href="#" class="social">
               <i class="fab fa-facebook-f"></i>
             </a>
@@ -124,7 +124,7 @@ function Login() {
               <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
-          <span>or use your account</span>
+          <span>or use your account</span> */}
           <input
             type="email"
             placeholder="Email"
@@ -162,7 +162,7 @@ function Login() {
           </div>
           <div class="overlay-panel overlay-right">
             <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start journey with us</p>
+            <p>Enter your personal details and start your journey with us</p>
             <button
               class="ghost"
               id="signUp"

@@ -6,14 +6,14 @@ import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
 
-// axios.defaults.baseURL = "http://localhost:8000";
+// axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.baseURL = "https://projsalty-api.vercel.app";
 axios.defaults.withCredentials = true;
 
 function App() {
   return (
     <UserContextProvider>
-      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+      <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

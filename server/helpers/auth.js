@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+const bcrypt = require("bcryptjs");
 
 const hashPassword = (password) => {
   return new Promise((resolve, reject) => {
@@ -20,7 +20,7 @@ const comparePassword = (password, hashed) => {
   return bcrypt.compare(password, hashed);
 };
 
-export default {
+module.exports = {
   hashPassword,
   comparePassword,
 };

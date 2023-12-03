@@ -1,8 +1,8 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import cookieParser from "cookie-parser";
-import authRoutes from "./routes/authRoutes.js";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
@@ -49,7 +49,7 @@ app.get("/", (request, response) => {
 app.use("/", authRoutes);
 
 app.listen(5000, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port 5000`);
 });
 
 mongoose

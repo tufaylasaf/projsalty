@@ -1,6 +1,6 @@
-import User from "../models/user.js";
-import auth from "../helpers/auth.js";
-import jwt from "jsonwebtoken";
+const User = require("../models/user");
+const auth = require("../helpers/auth");
+const jwt = require("jsonwebtoken");
 
 const registerUser = async (req, res) => {
   try {
@@ -88,4 +88,4 @@ const getProfile = (req, res) => {
   }
 };
 
-export default { registerUser, loginUser, getProfile };
+module.exports = { registerUser, loginUser, getProfile };
