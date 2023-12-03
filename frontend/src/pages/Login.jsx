@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../assets/Login.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -13,6 +13,10 @@ function Login() {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    toast.error("Testing.......");
+  }, []);
 
   const [loginData, setLoginData] = useState({
     email: "",

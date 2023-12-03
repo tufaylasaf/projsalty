@@ -13,7 +13,17 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
-      <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "white",
+            border: "2px solid #000",
+            color: "black",
+          },
+        }}
+      />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
