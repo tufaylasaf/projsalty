@@ -19,8 +19,17 @@ function App() {
           duration: 4000,
           style: {
             background: "white",
-            border: "2px solid #000",
             color: "black",
+          },
+          success: {
+            style: {
+              border: "2px solid green",
+            },
+          },
+          error: {
+            style: {
+              border: "3px solid red",
+            },
           },
         }}
       />

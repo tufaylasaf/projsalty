@@ -88,4 +88,18 @@ const getProfile = (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, getProfile };
+const getRecentUserNames = async (req, res) => {
+  try {
+    const users = await User.find({})
+      .sort({ registerDate: -1 })
+      .limit(7)
+      .select("name registerDate");
+
+    return res.status(200).json({ count: users.length, data: users });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+};
+
+module.exports = { registerUser, loginUser, getProfile, getRecentUserNames };

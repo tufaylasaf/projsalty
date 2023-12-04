@@ -16,6 +16,7 @@ const corsOptions = {
     const allowedOrigins = [
       "https://projsalty.vercel.app",
       "https://projsalty-api.vercel.app",
+      "http://localhost:5173",
     ];
 
     if (!origin || allowedOrigins.includes(origin)) {

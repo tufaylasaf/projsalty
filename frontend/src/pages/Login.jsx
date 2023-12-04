@@ -14,10 +14,6 @@ function Login() {
     password: "",
   });
 
-  useEffect(() => {
-    toast.error("Testing.......");
-  }, []);
-
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
