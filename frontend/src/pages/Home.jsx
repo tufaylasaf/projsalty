@@ -1,11 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../context/userContext";
 import styled from "styled-components";
 import { SocialIcon } from "react-social-icons";
 import axios from "axios";
 
 function Home() {
-  //   const { user } = useContext(UserContext);
   const [recentUsers, setRecentUsers] = useState({ data: [] });
 
   const calculateDateDifference = (registerDate) => {

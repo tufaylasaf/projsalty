@@ -5,6 +5,11 @@ import "./App.css";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
+import Profile from "./pages/Profile";
+import NewRecipe from "./pages/NewRecipe";
+import NotFound from "./pages/NotFound";
+import RecipeInfo from "./pages/RecipeInfo";
+import EditRecipe from "./pages/EditRecipe";
 
 // axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.baseURL = "https://projsalty-api.vercel.app";
@@ -37,6 +42,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/:name" element={<Profile />} />
+          <Route path="/:name/newrecipe" element={<NewRecipe />} />
+          <Route path="/:name/:id" element={<RecipeInfo />} />
+          <Route path="/:name/:id/edit" element={<EditRecipe />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </UserContextProvider>
