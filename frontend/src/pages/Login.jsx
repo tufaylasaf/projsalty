@@ -55,7 +55,7 @@ function Login() {
       } else {
         setLoginData({});
         toast.success("Login Successfull");
-        navigate("/Tufayl");
+        navigate(`/${name}`);
       }
     } catch (error) {}
   };

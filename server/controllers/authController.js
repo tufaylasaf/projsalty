@@ -68,7 +68,11 @@ const loginUser = async (req, res) => {
       });
 
       // Set the token as a cookie
-      res.cookie("token", token, { httpOnly: true });
+      res.cookie("token", token, {
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+      });
 
       // Send additional data if needed
       res.json({ message: "Login successful", user });
