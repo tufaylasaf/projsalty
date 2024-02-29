@@ -28,7 +28,6 @@ const corsOptions = {
   credentials: true,
 };
 
-app.use(cors(corsOptions));
 // Allow specific origin(s)
 // app.use(
 //   cors({
@@ -41,6 +40,8 @@ app.use(cors(corsOptions));
 //     credentials: true,
 //   })
 // );
+
+app.use(cors(corsOptions));
 
 app.get("/", (request, response) => {
   console.log(request);

@@ -55,7 +55,7 @@ function Login() {
       } else {
         setLoginData({});
         toast.success("Login Successfull");
-        window.location.href = `/${name}`;
+        navigate(`/${name}`);
       }
     } catch (error) {}
   };
