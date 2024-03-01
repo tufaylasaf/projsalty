@@ -13,6 +13,10 @@ router.get("/recentUsers", authController.getRecentUserNames);
 
 router.get("/search", authController.search);
 
+router.post("/review", authController.review);
+
+router.get("/review/:id", authController.getReview);
+
 router.get("/:name", authController.getRecipes);
 
 router.get("/:name/:id", authController.getRecipe);

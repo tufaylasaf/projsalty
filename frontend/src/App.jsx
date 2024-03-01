@@ -11,8 +11,8 @@ import NotFound from "./pages/NotFound";
 import RecipeInfo from "./pages/RecipeInfo";
 import EditRecipe from "./pages/EditRecipe";
 
-// axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.baseURL = "https://projsalty-api.vercel.app";
+axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "https://projsalty-api.vercel.app";
 axios.defaults.withCredentials = true;
 
 function App() {

@@ -4,12 +4,15 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import { toast } from "react-hot-toast";
 
 function RecipeInfo() {
   const { name, id } = useParams();
   const [recipe, setRecipe] = useState([]);
   const [error, setError] = useState(false);
   const { user, loading } = useContext(UserContext);
+
+  const [reviews, setReviews] = useState([]);
 
   const [rating, setRating] = useState(0);
   const [text, setText] = useState("");
@@ -24,7 +27,18 @@ function RecipeInfo() {
       }
     };
 
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(`/review/${id}`);
+        setReviews(response.data);
+        console.log(response.data);
+      } catch (error) {
+        setError(true);
+      }
+    };
+
     fetchRecipes();
+    fetchReviews();
   }, [name]);
 
   const handleStarClick = (newRating) => {
@@ -34,6 +48,27 @@ function RecipeInfo() {
   // Function to handle textarea change
   const handleTextChange = (event) => {
     setText(event.target.value);
+  };
+
+  const submitReview = async () => {
+    const review = {
+      rating: rating,
+      review: text,
+      recipe: id,
+      user: user.name,
+    };
+
+    try {
+      await axios.post(`/review`, review);
+      console.log(user.name);
+      // Handle success, redirect or show a success message
+      toast.success("Review Success");
+      console.log("Review successfully added to the database");
+    } catch (error) {
+      // Handle error, show an error message
+      toast.error("Review Unsuccessfull");
+      console.error("Error adding recipe to the database", error);
+    }
   };
 
   if (loading) {
@@ -92,6 +127,7 @@ function RecipeInfo() {
                   </RatingStar>
                 ))}
               </div>
+              <button onClick={submitReview}>Submit</button>
             </Rating>
             <Review>
               <Subheading>Your Review</Subheading>
@@ -104,6 +140,16 @@ function RecipeInfo() {
           </RR>
         </Container>
       ))}
+      {/* <Reviewsection>
+        <Reviewheading>Reviews</Reviewheading>
+        <Rev>
+          <Revinfo>
+            <Revname>Tufayl</Revname>
+            <Revrating>★★★★</Revrating>
+          </Revinfo>
+          <Revrev>this is pretty good</Revrev>
+        </Rev>
+      </Reviewsection> */}
     </div>
   );
 }
@@ -196,10 +242,11 @@ const RR = styled.div`
 
 const Rating = styled.div`
   width: 50%;
+  height: 100%;
   padding: 12px;
   margin: 5px 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
 `;
@@ -234,6 +281,56 @@ const StyledTextarea = styled.textarea`
   resize: none;
   background-color: #f6f5f7;
   outline: none;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+`;
+
+const Reviewsection = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  transform: translateX(7vw);
+  margin-left: 35px;
+`;
+
+const Reviewheading = styled.h1`
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-align: center;
+  text-decoration: 3px solid underline #f9dd94;
+`;
+
+const Rev = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 0px 40px;
+  width: ;
+  /* height: fit-content; */
+`;
+
+const Revinfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Revname = styled.h2`
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+`;
+
+const Revrating = styled.span``;
+
+const Revrev = styled.span`
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-style: normal;

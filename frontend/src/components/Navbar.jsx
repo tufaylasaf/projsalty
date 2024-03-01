@@ -8,6 +8,7 @@ import { TbScript } from "react-icons/tb";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [search, setSearch] = useState("");
@@ -16,8 +17,10 @@ function Navbar() {
 
   const { user, loading } = useContext(UserContext);
 
+  const navigate = useNavigate();
+
   const clickMyRecipe = () => {
-    window.location = "/" + user.name;
+    navigate(`/${user.name}`);
   };
 
   useEffect(() => {

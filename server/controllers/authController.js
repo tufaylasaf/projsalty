@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Recipe = require("../models/recipe");
+const Review = require("../models/review");
 const auth = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
 
@@ -240,6 +241,30 @@ const search = async (req, res) => {
   }
 };
 
+const review = async (req, res) => {
+  const newReview = {
+    rating: req.body.rating,
+    review: req.body.review,
+    recipe: req.body.recipe,
+    user: req.body.user,
+  };
+
+  const review = Review.create(newReview);
+
+  return res.status(201).send(review);
+};
+
+const getReview = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const reviews = await Review.find({ recipe: id });
+    res.json(reviews);
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -250,4 +275,6 @@ module.exports = {
   getRecipe,
   updateRecipe,
   search,
+  review,
+  getReview,
 };
