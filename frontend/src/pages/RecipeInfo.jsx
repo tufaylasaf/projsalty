@@ -311,10 +311,8 @@ const Rev = styled.div`
   flex-direction: column;
   border: 1px solid black;
   padding: 0px 40px;
-  width: ;
   /* height: fit-content; */
 `;
-
 const Revinfo = styled.div`
   display: flex;
   flex-direction: row;
